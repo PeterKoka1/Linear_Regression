@@ -66,7 +66,3 @@ def linreg():
     print("Linear Regression on dataset returned theta values of: {}".format(optimal_theta))
 
 linreg()
-
-
-
-
