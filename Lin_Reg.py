@@ -30,7 +30,7 @@ def costFunctionJ(X, y, theta):
         Error = (h_x_i - y_i)
         SSE += Error
     SSE = SSE**2
-    cost_out = SSE / (2*m)
+    cost_out = SSE * (1/(2 * m))
 
     return cost_out
 
@@ -38,31 +38,35 @@ def costFunctionJ_mult(X, y, theta, x_i):
     SSE = 0
     m = len(y)
     for i in range(m):
-        x = X.ix[i]
-        y_i = y.ix[i]
-        h_x_i = hypothesis(theta, x)
+        x = X.ix[i] 
+        y_i = y.ix[i] 
+        h_x_i = hypothesis(theta, x) 
         Error = (h_x_i - y_i) * x[x_i]
         SSE += Error
-    cost_out = SSE * (1/(2*m))
+    cost_out = SSE * (1/(2 * m))
 
     return cost_out
 
 def gradientDescent(X, y, alpha, theta):
-    thetas = [1,1.5]
+    thetas = [] 
     m = len(y)
     constant = (alpha * (1/m))
     for x_i in range(len(theta)):
         cost = costFunctionJ_mult(X, y, theta, x_i)
         convergence_alpha = theta[x_i] - (constant * cost)
-        thetas[x_i] = convergence_alpha
+        thetas.append(convergence_alpha)
 
     return thetas
 
-def linreg():
-    X, y = data()
-    theta = [1,1.5]
-    alpha = 0.01
-    optimal_theta = gradientDescent(X, y, alpha, theta)
-    print("Linear Regression on dataset returned theta values of: {}".format(optimal_theta))
+def linreg(X, y, alpha, theta, iterations):
+    for i in range(iterations):
+        optimal_theta = gradientDescent(X, y, alpha, theta)
+        theta = optimal_theta
+        
+    return theta
 
-linreg()
+def main():
+    X, y = data()
+    theta = [0,0]
+    alpha = 0.01
+    iterations = 1000
