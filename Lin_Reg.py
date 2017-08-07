@@ -7,7 +7,11 @@ def data():
     ones = np.zeros((len(data)))
     for i in range(len(ones)):
         ones[i] = 1
-    theta = [0, 1.5]
+
+    theta = np.zeros(shape=(2,1))
+    iterations = 1500
+    alpha = 0.01
+
     data['Ones'] = ones
     X = data
     X = pd.DataFrame(X, columns=['Ones', 'Profit'])
@@ -17,7 +21,7 @@ def data():
 
 def cost_func(X, y, theta, x_i):
     SSE = 0
-    m = len(y)
+    m = y.size
     for i in range(m):
         x = X.ix[i] 
         y_i = y.ix[i] 
@@ -30,7 +34,7 @@ def cost_func(X, y, theta, x_i):
 
 def gradientDescent(X, y, alpha, theta):
     thetas = [] # holding all possible theta's ( in this case 2 )
-    m = len(y)
+    m = y.size
     for x_i in range(len(theta)):
         cost = cost_func(X, y, theta, x_i)
         convergence_alpha = theta[x_i] - ((alpha * (1/m)) * cost)
@@ -49,7 +53,7 @@ def linreg(X, y, alpha, theta, iterations):
 
 def main():
     X, y = data()
-    theta = [0,0]
+    theta = np.zeros(size=(2,1))
     alpha = 0.01
     iterations = 1500
     opt_theta = linreg(X, y, alpha, theta, iterations)
