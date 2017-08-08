@@ -2,12 +2,13 @@ import pandas as pd
 import numpy as np
 
 data = pd.read_csv('C:\\Users\\PeterKokalov\\lpthw\\Machine_Learning\\Week1-2\\machine-learning-ex1\\ex1\\ex1data1.txt')
-data.columns = ['Profit','Population']
+data.columns = ['Profit', 'Population']
 ones = np.zeros((len(data)))
+
 for i in range(len(ones)):
     ones[i] = 1
 
-theta = np.zeros(shape=(2,1))
+theta = np.zeros(shape=(2, 1))
 iterations = 1500
 alpha = 0.01
 
@@ -20,46 +21,37 @@ def cost_func(X, y, theta, x_i):
     SSE = 0
     m = y.size
     for i in range(m):
-        x = X.ix[i] 
-        y_i = y.ix[i] 
-        h_x_i = theta[0] + theta[1] * x 
-        loss = (h_x_i - y_i) * x[x_i] 
+        x = X.ix[i]
+        y_i = y.ix[i]
+        h_x_i = theta[0] + theta[1] * x
+        loss = (h_x_i - y_i) * x[x_i]
         SSE += loss
-    total_loss = SSE * (1/m)
+    total_loss = SSE * (1 / m)
 
     return total_loss
 
 def gradientDescent(X, y, alpha, theta):
-    
-    thetas = [] 
-    
+    thetas = []
+
     m = y.size
     for x_i in range(len(theta)):
         cost = cost_func(X, y, theta, x_i)
-        convergence_alpha = theta[x_i] - ((alpha * (1/m)) * cost)
+        convergence_alpha = theta[x_i] - ((alpha * (1 / m)) * cost)
         thetas.append(convergence_alpha)
 
     return thetas
 
 def linreg(X, y, alpha, theta, iterations):
-    
-    descent_markers = []
-    
+
+    J_cost_hist = np.zeros((iterations,1))
+
     for i in range(iterations):
-        optimal_theta = gradientDescent(X, y, alpha, theta)
-        descent_markers.append(optimal_theta)
-        theta = optimal_theta
+        desc_theta = gradientDescent(X, y, alpha, theta)
+        J_cost_hist[i] = desc_theta
+        theta = desc_theta
 
-    return theta
+    return theta, J_cost_hist
 
-def main():
-    X, y = data()
-    theta = [0,0]
-    alpha = 0.01
-    iterations = 1500
-    opt_theta = linreg(X, y, alpha, theta, iterations)
+opt_theta, J_hist = linreg(X, y, alpha, theta, iterations)
 
-    return opt_theta
-# 
-# if __name__ == '__main__':
-#     main()
+print(opt_theta)
