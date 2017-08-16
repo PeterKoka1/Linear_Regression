@@ -8,7 +8,6 @@ ones = np.zeros((len(data)))
 
 for i in range(len(ones)):
     ones[i] = 1
-
 rand = np.random.randint(1,10)
 theta = [rand, rand]
 theta = pd.DataFrame(theta)
