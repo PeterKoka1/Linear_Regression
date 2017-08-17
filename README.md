@@ -11,5 +11,6 @@ Worked with small dataset provided by Professor Ng from Stanford's Machine Learn
 ## Technologies Used:
 **Languages**:
 Python
+
 **Libraries**:
 Pandas, Numpy, Matplotlib, scipy
