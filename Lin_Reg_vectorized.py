@@ -1,18 +1,13 @@
 """
 Vectorized Implementation of Linear Regression on dataset provided in Professor Ng's Machine Learning Course.
 
-
 PERFORMANCE:
 
 Starting gradient descent at b = 4, m = 2
-
 Performing Descent...
-
 15000 iterations - optimal theta's:
-
 Theta 0: -4.212
 Theta 1: 1.214
-
 """
 
 import pandas as pd
