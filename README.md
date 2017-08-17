@@ -8,8 +8,6 @@ Worked with small dataset provided by Professor Ng from Stanford's Machine Learn
 
 2) Matrix Approach (Lin_Reg_Vectorized.py)
 
-![Alt text](C:\Users\PeterKokalov\lpthw\Projects\ML\ScatterWithFittedLine_PopVsProfit.png "Performance Slope")
-
 ## Technologies Used:
 **Languages**:
 Python
