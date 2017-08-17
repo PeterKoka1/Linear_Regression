@@ -5,9 +5,11 @@ Worked with small dataset provided by Professor Ng from Stanford's Machine Learn
 **Used 2 approaches:**
 
 1) Logic Approach
+
 See Lin_Reg_Unvectorized.py
 
 2) Matrix Approach
+
 See Lin_Reg_Vectorized.py
 
 ## Technologies Used:
