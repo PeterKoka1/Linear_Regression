@@ -13,7 +13,7 @@ Theta 1: 1.062
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv('C:\\Users\\PeterKokalov\\lpthw\\Machine_Learning\\Week1-2\\machine-learning-ex1\\machine-learning-ex1\\ex1\\ex1data1.txt')
+data = pd.read_csv('...\\ex1data1.txt') # importing from location
 data.columns = ['Population', 'Profit']
 
 iterations = 2000
