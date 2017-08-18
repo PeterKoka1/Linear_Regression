@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('C:\\Users\\PeterKokalov\\lpthw\\Machine_Learning\\Week1-2\\machine-learning-ex1\\machine-learning-ex1\\ex1\\ex1data1.txt')
+data = pd.read_csv('...\\ex1data1.txt') # importing from location
 data.columns = ['Population', 'Profit']
 ones = np.zeros((len(data)))
 
@@ -77,5 +77,3 @@ plt.ylabel('City Profit in $1000\'s')
 plt.xlabel('City Population in 1000\'s')
 plt.tight_layout()
 plt.savefig('ScatterWithFittedLine_PopVsProfit')
-
-
