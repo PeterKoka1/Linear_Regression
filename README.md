@@ -4,7 +4,7 @@ Worked with small dataset provided by Professor Ng from Stanford's Machine Learn
 
 **2 approaches:**
 
-1) Logic Approach (Lin_Reg_Unvectorized.py)
+1) Iterative Approach (Lin_Reg_Scratch.py)
 
 2) Matrix Approach (Lin_Reg_Vectorized.py)
 
